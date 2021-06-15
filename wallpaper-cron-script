@@ -1,0 +1,9 @@
+#!/bin/bash -l
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+export DISPLAY=:0
+WD=$__PATH__
+
+python3 ${WD}/wallpaper-script.py
+
+gsettings set org.gnome.desktop.background picture-uri file:///${WD}/wallpaper
